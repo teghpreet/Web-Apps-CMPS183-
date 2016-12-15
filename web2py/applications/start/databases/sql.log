@@ -1,0 +1,232 @@
+timestamp: 2016-11-26T22:07:10.030000
+CREATE TABLE web2py_session_start(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    locked CHAR(1),
+    client_ip CHAR(64),
+    created_datetime TIMESTAMP,
+    modified_datetime TIMESTAMP,
+    unique_key CHAR(64),
+    session_data BLOB
+);
+success!
+timestamp: 2016-11-26T22:07:10.149000
+CREATE TABLE auth_user(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    first_name CHAR(128),
+    last_name CHAR(128),
+    email CHAR(512),
+    password CHAR(512),
+    registration_key CHAR(512),
+    reset_password_key CHAR(512),
+    registration_id CHAR(512)
+);
+success!
+timestamp: 2016-11-26T22:07:10.200000
+CREATE TABLE auth_group(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    role CHAR(512),
+    description TEXT
+);
+success!
+timestamp: 2016-11-26T22:07:10.248000
+CREATE TABLE auth_membership(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    user_id INTEGER REFERENCES auth_user (id) ON DELETE CASCADE  ,
+    group_id INTEGER REFERENCES auth_group (id) ON DELETE CASCADE  
+);
+success!
+timestamp: 2016-11-26T22:07:10.302000
+CREATE TABLE auth_permission(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    group_id INTEGER REFERENCES auth_group (id) ON DELETE CASCADE  ,
+    name CHAR(512),
+    table_name CHAR(512),
+    record_id INTEGER
+);
+success!
+timestamp: 2016-11-26T22:07:10.359000
+CREATE TABLE auth_event(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    time_stamp TIMESTAMP,
+    client_ip CHAR(512),
+    user_id INTEGER REFERENCES auth_user (id) ON DELETE CASCADE  ,
+    origin CHAR(512),
+    description TEXT
+);
+success!
+timestamp: 2016-11-26T22:07:10.411000
+CREATE TABLE auth_cas(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    user_id INTEGER REFERENCES auth_user (id) ON DELETE CASCADE  ,
+    created_on TIMESTAMP,
+    service CHAR(512),
+    ticket CHAR(512),
+    renew CHAR(1)
+);
+success!
+timestamp: 2016-11-28T18:50:43.773000
+CREATE TABLE product(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    product_name CHAR(512),
+    quantity INTEGER,
+    price DOUBLE,
+    image CHAR(512),
+    description TEXT
+);
+success!
+timestamp: 2016-11-28T18:50:43.831000
+CREATE TABLE customer_order(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    order_date CHAR(512),
+    customer_info BLOB,
+    transaction_token BLOB,
+    cart BLOB
+);
+success!
+timestamp: 2016-11-28T18:51:16.385000
+ALTER TABLE product ADD image_url CHAR(512);
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+timestamp: 2016-11-28T18:52:55.254000
+CREATE TABLE track(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    artist CHAR(512),
+    album CHAR(512),
+    title CHAR(512),
+    duration DOUBLE,
+    rating DOUBLE,
+    num_plays INTEGER,
+    created_by CHAR(512),
+    created_on CHAR(512)
+);
+success!
+timestamp: 2016-11-28T19:01:38.441000
+ALTER TABLE auth_user ADD user_timezone CHAR(512);
+success!
+success!
+timestamp: 2016-11-28T19:41:35.436000
+ALTER TABLE track ADD has_track CHAR(1);
+success!
+timestamp: 2016-11-28T19:41:35.517000
+CREATE TABLE track_data(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    track_id INTEGER REFERENCES track (id) ON DELETE CASCADE  ,
+    original_filename CHAR(512),
+    data_blob BLOB,
+    mime_type CHAR(512)
+);
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+timestamp: 2016-11-29T12:05:10.918000
+CREATE TABLE example_table(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    entry_name CHAR(512),
+    created_on TIMESTAMP
+);
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
